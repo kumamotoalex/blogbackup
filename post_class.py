@@ -8,9 +8,9 @@ class Post:
 	div_class_body_end = "</div>"
 	def __init__(self, body, header):
 		body = body.replace('<p>','\n').replace('</p>', '').replace('&rsquo;', "'").replace("&nbsp;", " ").replace("&ldquo;", '"').replace("&rdquo;", '"').replace("&hellip;", "...").replace("<span>", '')
-		body = body.replace('<p class="MsoNormal">','').replace('<em>', '').replace('&mdash;', '-').replace("<br>", '\n')
+		body = body.replace('<p class="MsoNormal">','').replace('<em>', '').replace('&mdash;', '-').replace("<br>", '\n').replace("</span>", '')
 		try:
-			header = header.split('<')[1].split('>')[1].replace('&rsquo;', "'").replace("&nbsp;", " ").replace("&ldquo;", '"').replace("&rdquo;", '"').replace("&hellip;", "...").replace("<span>", '').replace('<p class="MsoNormal">','').replace('<em>', '').replace('&mdash;', '-')
+			header = header.split('<')[1].split('>')[1].replace('&rsquo;', "'").replace("&nbsp;", " ").replace("&ldquo;", '"').replace("&rdquo;", '"').replace("&hellip;", "...").replace("<span>", '').replace('<p class="MsoNormal">','').replace('<em>', '').replace('&mdash;', '-').replace("</span>", '')
 		except IndexError:
 			header = ''
 		body_char_to_slice = body.find('>')
